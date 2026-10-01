@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAB 2 - TEKS REKON "Menelusuri Sejarah Komunikasi"</title>
+    <style>
+        :root {
+            /* Core Theme Colors */
+            --bg-abyss: #0a0e17;
+            --vintage-brown: #5c4033;
+            --vintage-dark: #2c1e16;
+            --vintage-cream: #f4e8c1;
+            --gold-past: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.6);
+            --cyan-future: #00f2fe;
+            --cyan-glow: rgba(0, 242, 254, 0.6);
+            
+            /* Glassmorphism UI */
+            --glass-bg: rgba(25, 20, 20, 0.75);
+            --glass-border: rgba(212, 175, 55, 0.35);
+            --glass-cyan-border: rgba(0, 242, 254, 0.3);
+            
+            /* Typography */
+            --text-main: #e2e8f0;
+            --text-muted: #b0a89d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-abyss);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            /* Vintage map & time portal texture */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+        }
+
+        /* Classic Font for Headings */
+        h1, h2, h3, .classic-title {
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .ticker-bar {
+            background: linear-gradient(90deg, var(--vintage-dark), var(--bg-abyss), var(--vintage-dark));
+            border-bottom: 2px solid var(--gold-past);
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+
+        .ticker-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .ticker-badge {
+            background: linear-gradient(135deg, var(--gold-past), #b8860b);
+            color: #000;
+            font-weight: 800;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            margin-right: 15px;
+            box-shadow: 0 0 10px var(--gold-glow);
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            color: var(--cyan-future);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+
+        header.portal-header {
+            text-align: center;
+            padding: 35px 20px;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 12px;
+            backdrop-filter: blur(16px);
+            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.1), 0 10px 30px rgba(0,0,0,0.6);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Clock Animation Background */
+        .header-bg-clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gear-spin {
+            transform-origin: center;
+            animation: spinGear 30s linear infinite;
+        }
+
+        .hand-hour {
+            transform-origin: 50px 50px;
+            animation: spinGear 43200s linear infinite; /* 12 hours */
+        }
+
+        .hand-minute {
+            transform-origin: 50px 50px;
+            animation: spinGear 3600s linear infinite; /* 1 hour */
+        }
+
+        @keyframes spinGear {
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--vintage-cream);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--gold-past);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .sub-title {
+            color: var(--cyan-future);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        nav.chrono-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(44, 30, 22, 0.8);
+            color: var(--vintage-cream);
+            border: 1px solid var(--vintage-brown);
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Georgia', serif;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--gold-past);
+            color: var(--gold-past);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--gold-glow);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--gold-past), #8b6508);
+            color: #000;
+            border-color: var(--vintage-cream);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .section-view {
+            display: none;
+            /* Warp Time Effect */
+            animation: warpTime 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        @keyframes warpTime {
+            0% { opacity: 0; transform: scale(1.05) translateZ(-100px); filter: blur(10px) hue-rotate(90deg); }
+            100% { opacity: 1; transform: scale(1) translateZ(0); filter: blur(0) hue-rotate(0); }
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        /* Steampunk corner screws */
+        .glass-panel::before, .glass-panel::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold-past);
+            border-radius: 50%;
+            box-shadow: inset 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .glass-panel::before { top: 10px; left: 10px; }
+        .glass-panel::after { top: 10px; right: 10px; }
+
+        .panel-heading {
+            font-size: 22px;
+            color: var(--vintage-cream);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--gold-past);
+            padding-bottom: 12px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .beranda-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 850px) {
+            .beranda-grid { grid-template-columns: 1fr; }
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gold-past);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-photo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: -15px; /* Overlap slightly */
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .avatar-box, .madrasah-logo-box {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-past);
+            overflow: hidden;
+            box-shadow: 0 0 15px var(--gold-glow);
+            background: var(--vintage-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .madrasah-logo-box {
+            z-index: 1;
+            transform: translateX(15px);
+            border-color: var(--cyan-future);
+            box-shadow: 0 0 15px var(--cyan-glow);
+            padding: 5px;
+            background: #fff; /* White bg for logo contrast */
+        }
+
+        .avatar-box {
+            transform: translateX(-15px);
+        }
+
+        .avatar-box img, .madrasah-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .madrasah-logo-box img {
+            object-fit: contain;
+        }
+
+        .teacher-name {
+            font-size: 20px;
+            font-family: 'Georgia', serif;
+            color: var(--vintage-cream);
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .info-list {
+            width: 100%;
+            text-align: left;
+            font-size: 13px;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--glass-border);
+            margin-top: 15px;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+        }
+
+        .info-label { color: var(--text-muted); }
+        .info-val { color: var(--cyan-future); font-weight: 600; text-align: right;}
+
+        .cp-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-cyan-border);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .cp-title {
+            color: var(--cyan-future);
+            font-size: 18px;
+            font-family: 'Georgia', serif;
+            margin-bottom: 15px;
+        }
+
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .theory-card {
+            background: linear-gradient(180deg, rgba(44, 30, 22, 0.6), rgba(0,0,0,0.4));
+            border: 1px solid var(--vintage-brown);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theory-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gold-past);
+        }
+
+        .theory-card:hover {
+            border-color: var(--gold-past);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .theory-card h3 {
+            color: var(--vintage-cream);
+            font-size: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chrono-slider-box {
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 100 L100 0 M-50 50 L50 -50 M50 150 L150 50" stroke="rgba(212,175,55,0.05)" stroke-width="2"/></svg>'), rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--gold-past);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .timeline-controls {
+            margin: 35px 0;
+            position: relative;
+        }
+
+        /* The Custom Vintage/Cyberpunk Slider */
+        input[type=range].chrono-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, var(--gold-past) 0%, rgba(255,255,255,0.1) 50%, var(--cyan-future) 100%);
+            height: 12px;
+            border-radius: 6px;
+            outline: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        input[type=range].chrono-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--vintage-cream) 20%, var(--vintage-brown) 80%);
+            border: 3px solid var(--gold-past);
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--gold-glow);
+            transition: transform 0.2s, background 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+
+        input[type=range].chrono-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        .epoch-display {
+            font-size: 26px;
+            font-family: 'Georgia', serif;
+            color: var(--vintage-cream);
+            text-shadow: 0 0 10px var(--gold-glow);
+            margin: 15px 0 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .epoch-year {
+            font-size: 15px;
+            color: var(--cyan-future);
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .epoch-card {
+            background: rgba(20, 15, 10, 0.8);
+            border: 1px dashed var(--gold-past);
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Rotating portal effect behind the epoch text */
+        .epoch-card::before {
+            content: '🌀';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            animation: spinGear 20s linear infinite;
+        }
+
+        .epoch-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+            animation: floatIcon 3s ease-in-out infinite, pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulseGlow {
+            from { filter: drop-shadow(0 0 5px var(--gold-past)); }
+            to { filter: drop-shadow(0 0 20px var(--cyan-future)); }
+        }
+
+        .drag-source {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 10px;
+            border: 1px solid var(--vintage-brown);
+            min-height: 80px;
+        }
+
+        .draggable-item {
+            background: linear-gradient(135deg, #3d2c23, #1f1612);
+            border: 1px solid var(--vintage-cream);
+            color: var(--vintage-cream);
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            user-select: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+        }
+
+        .draggable-item:hover {
+            background: var(--gold-past);
+            color: #000;
+            box-shadow: 0 0 15px var(--gold-glow);
+            transform: scale(1.02);
+        }
+
+        .drop-targets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .drop-box {
+            background: rgba(0,0,0,0.4);
+            border: 2px dashed var(--gold-past);
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 140px;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .drop-box:hover {
+            border-color: var(--cyan-future);
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        .drop-title {
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            color: var(--gold-past);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .quiz-card {
+            background: rgba(20, 15, 10, 0.7);
+            border-left: 4px solid var(--gold-past);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .question-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--vintage-cream);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-main);
+            border: 1px solid var(--vintage-brown);
+            padding: 14px 18px;
+            border-radius: 6px;
+            text-align: left;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn::before {
+            content: '⚙️';
+            margin-right: 10px;
+            font-size: 12px;
+            opacity: 0.5;
+            transition: transform 0.3s;
+        }
+
+        .option-btn:hover {
+            border-color: var(--gold-past);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .option-btn:hover::before {
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+
+        .option-btn.selected {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-past);
+        }
+
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.2) !important;
+            color: #fff !important;
+            border-color: #10b981 !important;
+        }
+        .option-btn.correct::before { content: '✅'; opacity: 1; }
+
+        .option-btn.wrong {
+            background: rgba(244, 63, 94, 0.2) !important;
+            color: #fff !important;
+            border-color: #f43f5e !important;
+        }
+        .option-btn.wrong::before { content: '❌'; opacity: 1; }
+
+        .reasoning-box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            display: none;
+            animation: warpTime 0.4s;
+            border-left: 3px solid transparent;
+        }
+
+        .reasoning-box.show { display: block; }
+
+        .reasoning-box.correct-bg {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
+            color: #a7f3d0;
+        }
+
+        .reasoning-box.wrong-bg {
+            background: rgba(244, 63, 94, 0.1);
+            border-color: #f43f5e;
+            color: #fecdd3;
+        }
+
+        .score-certificate {
+            background: linear-gradient(135deg, rgba(20,15,10,0.95), rgba(44,30,22,0.95));
+            border: 2px double var(--gold-past);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            display: none;
+            box-shadow: 0 0 40px var(--gold-glow);
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, var(--gold-past), #8b6508);
+            color: #000;
+            border: 1px solid var(--vintage-cream);
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn-action:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--gold-glow);
+            background: linear-gradient(135deg, var(--cyan-future), #0077b6);
+            border-color: var(--cyan-future);
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-past);
+            border: 1px solid var(--gold-past);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticker-bar">
+        <div class="ticker-wrapper">
+            <div class="ticker-badge">
+                <span>📍 INFO MADRASAH</span>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    Nama Pengembang: Febriyanto Saboe | Materi Kelas IX Semester 1 | Tahun Ajaran 2026/2027 | MTsN 2 Kabupaten Gorontalo
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="portal-header">
+            <!-- Animated SVG Clock Background -->
+            <svg class="header-bg-clock" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(212,175,55,0.8)" stroke-width="2" stroke-dasharray="4 2"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,242,254,0.5)" stroke-width="1"/>
+                <g class="gear-spin">
+                    <circle cx="50" cy="50" r="10" fill="none" stroke="rgba(212,175,55,0.8)" stroke-width="3"/>
+                    <path d="M50 35 L50 40 M50 60 L50 65 M35 50 L40 50 M60 50 L65 50" stroke="rgba(212,175,55,0.8)" stroke-width="3"/>
+                </g>
+                <line class="hand-hour" x1="50" y1="50" x2="50" y2="25" stroke="rgba(212,175,55,1)" stroke-width="4" stroke-linecap="round"/>
+                <line class="hand-minute" x1="50" y1="50" x2="75" y2="50" stroke="rgba(0,242,254,1)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="4" fill="#fff"/>
+            </svg>
+
+            <div class="header-content">
+                <div class="sub-title">MEDIA PEMBELAJARAN INTERAKTIF • FASE D</div>
+                <h1 class="main-title">BAB 2 - TEKS REKON "Menelusuri Sejarah Komunikasi"</h1>
+                <p style="color: var(--text-muted); font-size: 14px; margin-top: 10px; font-family: 'Georgia', serif; font-style: italic;">
+                    Eksplorasi Dimensi Waktu & Rekonstruksi Peristiwa Masa Lalu hingga Masa Depan
+                </p>
+            </div>
+        </header>
+
+        <nav class="chrono-nav">
+            <button class="nav-btn active" onclick="switchView('beranda')">🗺️ Peta Beranda</button>
+            <button class="nav-btn" onclick="switchView('teori')">📜 Gulungan Teori</button>
+            <button class="nav-btn" onclick="switchView('mesinwaktu')">⏳ Mesin Waktu</button>
+            <button class="nav-btn" onclick="switchView('lab')">⚙️ Lab Rekonstruksi</button>
+            <button class="nav-btn" onclick="switchView('evaluasi')">🎯 Uji Kompetensi</button>
+        </nav>
+
+        <section id="beranda" class="section-view active">
+            <div class="glass-panel">
+                <div class="panel-heading classic-title">
+                    <span>🧭</span> Identitas Penjelajah Waktu
+                </div>
+                
+                <div class="beranda-grid">
+                    <div class="profile-card">
+                        <div class="logo-photo-container">
+                            <div class="madrasah-logo-box" title="Logo MTsN 2 Kab. Gorontalo">
+                                <img src="20230214_150354.jpg" alt="Logo Madrasah">
+                            </div>
+                            <div class="avatar-box" title="Foto Pengembang: Febriyanto Saboe">
+                                <img src="https://iili.io/na6sOcN.md.png" alt="Foto Febriyanto Saboe">
+                            </div>
+                        </div>
+
+                        <div class="teacher-name">Febriyanto Saboe</div>
+                        <div class="sub-title" style="font-size: 11px;">Arsitek Pembelajaran / Guru Bahasa Indonesia</div>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Pangkalan:</span>
+                                <span class="info-val">MTsN 2 Kab. Gorontalo</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Target Ekspedisi:</span>
+                                <span class="info-val">Kelas IX / Fase D</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Tahun Ajaran:</span>
+                                <span class="info-val">2026 / 2027</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Titik Koordinat:</span>
+                                <span class="info-val">Kawasan Danau Limboto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-card">
+                        <div class="cp-title classic-title">📜 Capaian & Misi Eksplorasi</div>
+                        <p style="font-size: 15px; line-height: 1.8; margin-bottom: 20px; color: var(--vintage-cream);">
+                            Murid selaku "Penjelajah Waktu" mampu mengeksplorasi dan mengevaluasi berbagai informasi dalam <strong>Teks Rekon (Cerita Ulang) Faktual</strong> mengenai Sejarah Perkembangan Komunikasi, mulai dari isyarat tradisional hingga teknologi futuristik.
+                        </p>
+
+                        <div style="background: rgba(212,175,55,0.05); border-left: 3px solid var(--gold-past); padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+                            <strong style="color: var(--gold-past); font-size: 14px; font-family: 'Georgia', serif;">🗺️ Observasi Lingkungan Lokal:</strong>
+                            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">
+                                Menelusuri jejak kearifan lokal seperti penggunaan <em>kentongan</em> dan <em>lesung</em> oleh masyarakat tradisional pesisir Danau Limboto dan Tabongo, lalu menghubungkannya dengan era ponsel pintar saat ini.
+                            </p>
+                        </div>
+
+                        <button class="btn-action" onclick="switchView('mesinwaktu')">
+                            Nyalakan Portal Waktu 🌀
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="teori" class="section-view">
+            <div class="glass-panel">
+                <div class="panel-heading classic-title">
+                    <span>📖</span> Arsip Teori: Anatomi Teks Rekon
+                </div>
+
+                <div class="theory-grid">
+                    <div class="theory-card">
+                        <h3 class="classic-title">🔍 Hakikat Teks Rekon</h3>
+                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted);">
+                            Berasal dari kata <em>rekonstruksi</em> yang berarti <strong>penyusunan kembali</strong>. Teks rekon atau cerita ulang memuat suatu peristiwa, kegiatan, atau pengalaman masa lampau yang diamati secara kronologis.
+                        </p>
+                        <div style="margin-top: 15px; display: flex; gap: 8px;">
+                            <span class="tag">Informasi</span>
+                            <span class="tag">Menghibur</span>
+                        </div>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3 class="classic-title">⚙️ Ciri Kebahasaan</h3>
+                        <ul style="font-size: 14px; line-height: 1.8; padding-left: 20px; color: var(--text-muted);">
+                            <li><strong style="color: var(--vintage-cream);">Waktu Lampau:</strong> "Pada tanggal 17 Agustus 1945", "zaman dahulu kala".</li>
+                            <li><strong style="color: var(--vintage-cream);">Kata Ganti:</strong> Aku, dia, kami, mereka.</li>
+                            <li><strong style="color: var(--vintage-cream);">Kronologis:</strong> Selanjutnya, setelah itu, kemudian.</li>
+                            <li><strong style="color: var(--vintage-cream);">Kata Kerja Aksi:</strong> Mengetik, mengirim.</li>
+                        </ul>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3 class="classic-title">🏗️ Struktur Teks</h3>
+                        <ol style="font-size: 14px; line-height: 1.8; padding-left: 20px; color: var(--text-muted);">
+                            <li><strong style="color: var(--gold-past);">Judul:</strong> Frasa kunci representatif.</li>
+                            <li><strong style="color: var(--gold-past);">Orientasi:</strong> Pembuka & gambaran umum.</li>
+                            <li><strong style="color: var(--gold-past);">Urutan Peristiwa:</strong> Rekaman kejadian kronologis (inti).</li>
+                            <li><strong style="color: var(--gold-past);">Reorientasi:</strong> Penutup/komentar (opsional).</li>
+                        </ol>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3 class="classic-title">🎭 Klasifikasi Teks Rekon</h3>
+                        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted);">
+                            • <strong>Pribadi:</strong> Pengalaman diri (Relawan Banjir).<br>
+                            • <strong>Faktual:</strong> Berdasarkan fakta/sejarah nyata (Kasus Oknum Guru, Sejarah Komunikasi).<br>
+                            • <strong>Imajinatif:</strong> Cerita rekaan mendetail (Kisah Siena & Boneka Barbie).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mesinwaktu" class="section-view">
+            <div class="glass-panel">
+                <div class="panel-heading classic-title">
+                    <span>🌀</span> Navigator Sejarah Komunikasi
+                </div>
+                <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">
+                    Geser tuas mesin waktu (slider) di bawah ini untuk mengamati lompatan teknologi komunikasi peradaban manusia. Perhatikan bagaimana cahaya keemasan (masa lampau) memudar menuju cyan (masa depan).
+                </p>
+
+                <div class="chrono-slider-box">
+                    <div class="epoch-display" id="epochTitle">1. Cahaya, Bunyi, dan Asap</div>
+                    <div class="epoch-year" id="epochYear">Masa Purba - Tradisional Nusantara</div>
+
+                    <div class="timeline-controls">
+                        <input type="range" min="0" max="7" value="0" class="chrono-slider" id="timeRange" oninput="updateTimePortal(this.value)">
+                    </div>
+
+                    <div class="epoch-card">
+                        <div class="epoch-icon" id="epochIcon">⏳</div>
+                        <h4 id="epochSubtitle" style="color: var(--gold-past); margin-bottom: 12px; font-size: 18px; font-family: 'Georgia', serif;">Sinyal Alamiah Peradaban</h4>
+                        <p id="epochDesc" style="font-size: 15px; line-height: 1.8; max-width: 750px; color: var(--vintage-cream); position: relative; z-index: 1;">
+                            Komunikasi jarak jauh masa purba sangat primitif. Manusia menggunakan asap, bunyi-bunyian, dan cahaya api. Di Indonesia, masyarakat di Gorontalo & Nusantara dulu menggunakan kentongan dan lesung. Sinyal asap juga masih dipakai di Vatikan untuk penunjukan Paus baru.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lab" class="section-view">
+            <div class="glass-panel">
+                <div class="panel-heading classic-title">
+                    <span>⚙️</span> Bengkel Mekanik Teks (Lab)
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--vintage-brown); border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--gold-past); font-size: 16px; margin-bottom: 10px; font-family: 'Georgia', serif;">
+                        Instruksi Perakitan: Susun Teks Rekon Faktual "Medan Prijaji"
+                    </h3>
+                    <p style="font-size: 14px; color: var(--text-muted);">
+                        Klik blok komponen di bawah, kemudian pasangkan (klik) ke slot struktur mesin yang tepat!
+                    </p>
+
+                    <div class="drag-source" id="sourceBox">
+                        <div class="draggable-item" id="item1" onclick="selectLabItem('item1')">
+                            "Medan Prijaji terbit di Bandung pada Januari 1907 hingga Januari 1912..."
+                        </div>
+                        <div class="draggable-item" id="item2" onclick="selectLabItem('item2')">
+                            "Koran Pertama Berbahasa Melayu: Medan Prijaji"
+                        </div>
+                        <div class="draggable-item" id="item3" onclick="selectLabItem('item3')">
+                            "Surat kabar ini menjadi tonggak sejarah penting pergerakan pers nasional Indonesia."
+                        </div>
+                    </div>
+
+                    <div class="drop-targets">
+                        <div class="drop-box" id="targetJudul" onclick="placeLabItem('targetJudul', 'Judul')">
+                            <div class="drop-title">Slot 1: Judul</div>
+                            <div class="drop-content" id="content-Judul"></div>
+                        </div>
+                        <div class="drop-box" id="targetOrientasi" onclick="placeLabItem('targetOrientasi', 'Orientasi')">
+                            <div class="drop-title">Slot 2: Urutan Peristiwa (Inti)</div>
+                            <div class="drop-content" id="content-Orientasi"></div>
+                        </div>
+                        <div class="drop-box" id="targetReorientasi" onclick="placeLabItem('targetReorientasi', 'Reorientasi')">
+                            <div class="drop-title">Slot 3: Reorientasi (Komentar)</div>
+                            <div class="drop-content" id="content-Reorientasi"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button class="btn-action" onclick="checkLabAnswer()">Pindai Hasil Perakitan ⚙️</button>
+                        <div id="labFeedback" style="margin-top: 15px; font-size: 15px; font-weight: 700; font-family: 'Georgia', serif;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="evaluasi" class="section-view">
+            <div class="glass-panel">
+                <div class="panel-heading classic-title">
+                    <span>🎯</span> Uji Kompetensi Lintas Waktu
+                </div>
+                <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">
+                    Analisis instrumen evaluasi ini dengan cermat. Setiap keputusaan mesin akan memicu umpan balik edukatif seketika (real-time feedback) untuk meluruskan penalaranmu.
+                </p>
+
+                <div id="identitasSiswa" style="background: rgba(0,0,0,0.5); border: 1px solid var(--vintage-brown); border-radius: 10px; padding: 25px; margin-bottom: 25px; text-align: center;">
+                    <h3 class="classic-title" style="color: var(--gold-past); margin-bottom: 10px;">Autentikasi Penjelajah</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Masukkan identitas untuk mengkalibrasi mesin dan merekam hasil rekam jejakmu ke markas pusat.</p>
+                    <input type="text" id="inputNama" placeholder="Nama Lengkap" style="width: 80%; max-width: 300px; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.1); color: white; outline: none; font-family: 'Segoe UI', sans-serif;">
+                    <br>
+                    <input type="text" id="inputKelas" placeholder="Kelas (Contoh: IX A)" style="width: 80%; max-width: 300px; padding: 12px; margin-bottom: 20px; border-radius: 6px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.1); color: white; outline: none; font-family: 'Segoe UI', sans-serif;">
+                    <br>
+                    <button class="btn-action" onclick="mulaiKuis()">Aktivasi Kuis 🚀</button>
+                    <p id="errorIdentitas" style="color: #f43f5e; font-size: 13px; margin-top: 15px; display: none;">*Autentikasi gagal. Nama dan Kelas wajib diisi!</p>
+                </div>
+
+                <div id="quizContainer" style="display: none;"></div>
+
+                <div class="score-certificate" id="scoreCertificate">
+                    <h2 class="classic-title" style="color: var(--gold-past); font-size: 28px; margin-bottom: 10px;">🏆 SERTIFIKAT EKSPEDISI</h2>
+                    <p style="color: var(--vintage-cream); font-size: 16px;">Penjelajah Waktu MTsN 2 Kabupaten Gorontalo</p>
+                    <div style="font-size: 60px; font-weight: 900; color: var(--cyan-future); margin: 20px 0; text-shadow: 0 0 20px var(--cyan-glow);" id="finalScoreVal">0</div>
+                    <p style="color: var(--text-main); font-size: 15px; margin-bottom: 10px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;" id="scoreComment"></p>
+                    
+                    <div id="savingIndicator" style="margin-bottom: 25px; padding: 10px; border-radius: 6px; font-size: 14px; font-weight: bold;"></div>
+                    
+                    <button class="btn-action" onclick="resetQuiz()">Ulangi Ekspedisi 🔄</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- 1. TABS / VIEW SWITCHING (WITH WARP EFFECT) ---
+        function switchView(viewId) {
+            // Remove active classes
+            document.querySelectorAll('.section-view').forEach(el => {
+                el.classList.remove('active');
+                // Trigger reflow to restart animation on next click
+                void el.offsetWidth;
+            });
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            
+            // Add active to selected
+            const targetView = document.getElementById(viewId);
+            targetView.classList.add('active');
+            
+            // Highlight button
+            const btns = document.querySelectorAll('.nav-btn');
+            if(viewId === 'beranda') btns[0].classList.add('active');
+            else if(viewId === 'teori') btns[1].classList.add('active');
+            else if(viewId === 'mesinwaktu') btns[2].classList.add('active');
+            else if(viewId === 'lab') btns[3].classList.add('active');
+            else if(viewId === 'evaluasi') btns[4].classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 2. TIME PORTAL LOGIC & DATA ---
+        const historyTimeline = [
+            {
+                era: "1. Cahaya, Bunyi, dan Asap",
+                year: "Masa Purba - Tradisional Nusantara",
+                title: "Sinyal Alamiah Peradaban",
+                icon: "⏳",
+                desc: "Komunikasi jarak jauh masa purba sangat primitif. Manusia menggunakan asap, bunyi-bunyian, dan cahaya api. Di Indonesia, masyarakat tradisional sering menggunakan kentongan dan lesung sebagai penanda. Saat ini, sinyal asap masih digunakan di Vatikan untuk penunjukan Paus baru."
+            },
+            {
+                era: "2. Surat & Merpati Pos",
+                year: "Era Persuratan Kuno",
+                title: "Pesan Tertulis Pertama",
+                icon: "✉️",
+                desc: "Setelah manusia mengenal tulisan dan kertas, surat-menyurat mulai berkembang pesat. Merpati dilatih menjadi kurir membawa wadah besi berisi surat. Angkatan Laut Inggris juga pernah mengirim pesan menggunakan botol yang dihanyutkan di lautan."
+            },
+            {
+                era: "3. Penemuan Telegraf",
+                year: "Tahun 1837 (Samuel Morse)",
+                title: "Lompatan Telegram Listrik",
+                icon: "📠",
+                desc: "Kawat dan listrik dirangkai menjadi telegraf yang mampu mengirim pesan singkat bernama telegram. Teknologi ini memecahkan rekor kecepatan jarak jauh menggunakan alfabet khusus yang disebut sandi Morse."
+            },
+            {
+                era: "4. Era Telepon Kabel",
+                year: "Tahun 1876 (Alexander Graham Bell)",
+                title: "Suara Lewat Kawat",
+                icon: "☎️",
+                desc: "Bell berhasil menciptakan alat yang menghantarkan suara manusia secara langsung lewat kabel. Penemuan ini terus berevolusi hingga memanfaatkan sinyal satelit, menjadi fondasi bagi telepon seluler nirkabel modern."
+            },
+            {
+                era: "5. Siaran Radio",
+                year: "Tahun 1895 (Guglielmo Marconi)",
+                title: "Frekuensi Penyiaran Jarak Jauh",
+                icon: "📻",
+                desc: "Radio merevolusi cara penyebaran informasi massa menggunakan stasiun penghubung dan baterai transistor. Di Indonesia, radio berkembang pesat setelah kemerdekaan lewat Radio Republik Indonesia (RRI)."
+            },
+            {
+                era: "6. Media Cetak Massal",
+                year: "59 SM (Romawi) & 1907 (Indonesia)",
+                title: "Koran & Catatan Sejarah",
+                icon: "🕰️",
+                desc: "Acta Diurna di Romawi adalah koran tertua di dunia. Di Indonesia, surat kabar Medan Prijaji yang terbit di Bandung pada Januari 1907 adalah tonggak sejarah penting; koran nasional pertama berbahasa Melayu yang dikelola orang Indonesia."
+            },
+            {
+                era: "7. Era Televisi & Komputer",
+                year: "Abad Ke-20",
+                title: "Revolusi Audio Visual Digital",
+                icon: "💻",
+                desc: "Informasi mulai menggabungkan unsur suara dan gambar bergerak secara masif. Di Indonesia, TVRI menjadi pelopor sebelum maraknya stasiun swasta. Di era ini pula komputasi mulai berkembang masuk ke ranah publik."
+            },
+            {
+                era: "8. Era Internet & Ponsel Pintar",
+                year: "Abad Ke-21 (Saat Ini)",
+                title: "Dunia di Ujung Jari",
+                icon: "📱",
+                desc: "Konvergensi seluruh media: TV diganti streaming, koran menjadi portal online, surat menjadi email. Lewat internet dan telepon genggam (smartphone), manusia kini bisa melakukan telekonferensi video visual secara instan di mana saja."
+            }
+        ];
+
+        function updateTimePortal(val) {
+            const data = historyTimeline[val];
+            const iconEl = document.getElementById('epochIcon');
+            const cardEl = document.querySelector('.epoch-card');
+            
+            // Retrigger animations
+            iconEl.style.animation = 'none';
+            void iconEl.offsetWidth; 
+            iconEl.style.animation = 'floatIcon 3s ease-in-out infinite, pulseGlow 2s infinite alternate';
+
+            cardEl.style.animation = 'none';
+            void cardEl.offsetWidth;
+            cardEl.style.animation = 'warpTime 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+
+            document.getElementById('epochTitle').innerText = data.era;
+            document.getElementById('epochYear').innerText = data.year;
+            document.getElementById('epochIcon').innerText = data.icon;
+            document.getElementById('epochSubtitle').innerText = data.title;
+            document.getElementById('epochDesc').innerText = data.desc;
+
+            // Change UI colors based on era (Past = Gold, Future = Cyan)
+            const subtitle = document.getElementById('epochSubtitle');
+            if(val < 4) {
+                subtitle.style.color = 'var(--gold-past)';
+            } else {
+                subtitle.style.color = 'var(--cyan-future)';
+            }
+        }
+
+        // --- 3. KINESTHETIC LAB LOGIC ---
+        let selectedItem = null;
+        let labAssignments = { Judul: null, Orientasi: null, Reorientasi: null };
+
+        function selectLabItem(itemId) {
+            document.querySelectorAll('.draggable-item').forEach(el => {
+                el.style.borderColor = 'var(--vintage-cream)';
+                el.style.boxShadow = '0 4px 6px rgba(0,0,0,0.5)';
+            });
+            selectedItem = itemId;
+            const activeEl = document.getElementById(itemId);
+            activeEl.style.borderColor = 'var(--cyan-future)';
+            activeEl.style.boxShadow = '0 0 15px var(--cyan-glow)';
+        }
+
+        function placeLabItem(targetBoxId, targetKey) {
+            if(!selectedItem) return;
+            const itemEl = document.getElementById(selectedItem);
+            const contentBox = document.getElementById(`content-${targetKey}`);
+            
+            // Remove selection styling
+            itemEl.style.borderColor = 'var(--vintage-cream)';
+            itemEl.style.boxShadow = '0 4px 6px rgba(0,0,0,0.5)';
+
+            contentBox.innerHTML = '';
+            contentBox.appendChild(itemEl);
+            labAssignments[targetKey] = selectedItem;
+            selectedItem = null;
+        }
+
+        function checkLabAnswer() {
+            const feedback = document.getElementById('labFeedback');
+            if(!labAssignments.Judul || !labAssignments.Orientasi || !labAssignments.Reorientasi) {
+                feedback.style.color = '#f43f5e';
+                feedback.innerText = "⚠️ Harap pasangkan seluruh komponen sebelum melakukan pemindaian!";
+                return;
+            }
+
+            if(labAssignments.Judul === 'item2' && labAssignments.Orientasi === 'item1' && labAssignments.Reorientasi === 'item3') {
+                feedback.style.color = '#10b981';
+                feedback.innerText = "✨ PERAKITAN BERHASIL! Struktur Teks Rekon Faktual Medan Prijaji sangat akurat.";
+            } else {
+                feedback.style.color = '#f43f5e';
+                feedback.innerText = "❌ ERROR: Susunan komponen tidak logis. Cek kembali hierarki Judul -> Orientasi -> Reorientasi.";
+            }
+        }
+
+        // --- 4. INTERACTIVE EVALUATION MODULE ---
+        const quizQuestions = [
+            {
+                q: "1. Kata 'pada Januari 1907' dan 'di Bandung' dalam teks rekon sejarah surat kabar Medan Prijaji mencerminkan ciri kebahasaan...",
+                opts: [
+                    "Menggunakan kata ganti orang pertama",
+                    "Menggunakan keterangan waktu dan tempat yang spesifik",
+                    "Menggunakan kata sifat penilaian",
+                    "Menggunakan kalimat ajakan persuasif"
+                ],
+                correct: 1,
+                reason: "Tepat sekali! Teks rekon faktual mewajibkan keterangan waktu (Januari 1907) dan tempat (Bandung) agar peristiwa sejarah terekam presisi."
+            },
+            {
+                q: "2. Berdasarkan data mesin waktu, surat kabar pertama di Indonesia yang menggunakan bahasa Melayu serta dimiliki dan dikerjakan murni oleh orang Indonesia asli adalah...",
+                opts: [
+                    "Acta Diurna dari Romawi",
+                    "Surat Kabar Medan Prijaji",
+                    "Jawa Pos",
+                    "Koran Kompas"
+                ],
+                correct: 1,
+                reason: "Akurat! Medan Prijaji yang terbit tahun 1907 menjadi tonggak sejarah penting pergerakan pers nasional."
+            },
+            {
+                q: "3. Kasus pencurian komputer oleh oknum guru berinisial AR di Pangandaran yang dilaporkan oleh pihak kepolisian merupakan contoh dari jenis...",
+                opts: [
+                    "Teks Rekon Pribadi",
+                    "Teks Rekon Faktual",
+                    "Teks Rekon Imajinatif",
+                    "Teks Rekon Opini"
+                ],
+                correct: 1,
+                reason: "Benar! Karena teks ini diangkat dari laporan faktual pihak berwenang dan wawancara saksi (Dinas Pendidikan), bukan dari rekaan fiksi."
+            },
+            {
+                q: "4. Sebelum era telepon Bell dan ponsel pintar, Samuel Morse memicu revolusi komunikasi tahun 1837 menggunakan mesin...",
+                opts: [
+                    "Satelit Pemancar Radio",
+                    "Mesin Telegraf dan Sandi Telegram",
+                    "Komputer Generasi Pertama",
+                    "Televisi TVRI"
+                ],
+                correct: 1,
+                reason: "Bagus! Telegraf dan sandi Morse adalah penemuan vital yang memanfaatkan kawat listrik sebelum adanya telepon suara."
+            },
+            {
+                q: "5. Bagian akhir teks rekon yang sifatnya opsional, biasanya memuat penutup atau komentar pribadi sang penulis terhadap peristiwa sejarah disebut...",
+                opts: [
+                    "Orientasi",
+                    "Urutan Peristiwa Kronologis",
+                    "Reorientasi",
+                    "Pemecahan Masalah"
+                ],
+                correct: 2,
+                reason: "Sempurna! Reorientasi berfungsi membungkus kembali cerita dengan kesimpulan atau pandangan pribadi sang pencerita."
+            }
+        ];
+
+        let userAnswers = new Array(quizQuestions.length).fill(null);
+
+        // LINK GOOGLE APPS SCRIPT SUDAH DIUPDATE DI BAWAH INI
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbw-Ln-6bW8kj2V_F0kjVIFI2i9VtA9bTVuPJo3HQ-KuzDmuEsLmsKnhazQ1ze3S70usag/exec"; 
+
+        function mulaiKuis() {
+            const nama = document.getElementById('inputNama').value.trim();
+            const kelas = document.getElementById('inputKelas').value.trim();
+            const errorMsg = document.getElementById('errorIdentitas');
+            
+            if(nama === '' || kelas === '') {
+                errorMsg.style.display = 'block';
+                return;
+            }
+            errorMsg.style.display = 'none';
+            document.getElementById('identitasSiswa').style.display = 'none';
+            
+            const quizContainer = document.getElementById('quizContainer');
+            quizContainer.style.display = 'block';
+            
+            // Render the quiz only after student enters their identity
+            if(quizContainer.innerHTML === '') {
+                renderQuiz();
+            }
+        }
+
+        async function sendDataToGAS(score, correctCount, wrongCount, studentAnswerTexts) {
+            const nama = document.getElementById('inputNama').value.trim();
+            const kelas = document.getElementById('inputKelas').value.trim();
+            const indicator = document.getElementById('savingIndicator');
+
+            indicator.style.display = 'block';
+            indicator.style.backgroundColor = 'rgba(212, 175, 55, 0.2)';
+            indicator.style.color = 'var(--gold-past)';
+            indicator.innerText = "⏳ Sedang mengirim transmisi data ke Markas Pusat (Database)...";
+
+            // Siapkan data soal untuk dikirim agar Google Sheet bisa otomatis membuat tabel "Soal"
+            const soalData = quizQuestions.map(q => ({
+                q: q.q,
+                opts: q.opts,
+                correct: q.correct
+            }));
+
+            const payload = {
+                type: "submission",
+                nama: nama,
+                kelas: kelas,
+                benar: correctCount,
+                salah: wrongCount,
+                nilai: score,
+                jumlahSoal: quizQuestions.length,
+                jawabanSiswa: studentAnswerTexts,
+                soalData: soalData
+            };
+
+            try {
+                // Menggunakan text/plain untuk menghindari preflight CORS yang rumit pada Apps Script
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                
+                if(result.status === 'success') {
+                    indicator.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
+                    indicator.style.color = '#10b981';
+                    indicator.innerText = "✅ Data berhasil tersimpan di Database Guru!";
+                } else {
+                    throw new Error("Respons server bukan sukses");
+                }
+            } catch (e) {
+                console.error("Gagal menyimpan data:", e);
+                indicator.style.backgroundColor = 'rgba(244, 63, 94, 0.2)';
+                indicator.style.color = '#f43f5e';
+                indicator.innerText = "⚠️ Gagal mengirim data secara otomatis. (Cek koneksi/URL Server)";
+            }
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            quizQuestions.forEach((item, qIdx) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+
+                const qTitle = document.createElement('div');
+                qTitle.className = 'question-text';
+                qTitle.innerText = item.q;
+                card.appendChild(qTitle);
+
+                const optsGrid = document.createElement('div');
+                optsGrid.className = 'options-grid';
+
+                item.opts.forEach((opt, oIdx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.id = `q_${qIdx}_o_${oIdx}`;
+                    btn.innerText = opt;
+                    btn.onclick = () => answerQuestion(qIdx, oIdx);
+                    optsGrid.appendChild(btn);
+                });
+
+                card.appendChild(optsGrid);
+
+                const reasonBox = document.createElement('div');
+                reasonBox.className = 'reasoning-box';
+                reasonBox.id = `reason_${qIdx}`;
+                card.appendChild(reasonBox);
+
+                container.appendChild(card);
+            });
+        }
+
+        function answerQuestion(qIdx, selectedOpt) {
+            if(userAnswers[qIdx] !== null) return; // Lock answers
+            userAnswers[qIdx] = selectedOpt;
+
+            const qData = quizQuestions[qIdx];
+            const reasonBox = document.getElementById(`reason_${qIdx}`);
+            
+            // Stylize options
+            for(let i = 0; i < qData.opts.length; i++) {
+                const btn = document.getElementById(`q_${qIdx}_o_${i}`);
+                btn.style.cursor = 'not-allowed';
+                
+                if(i === qData.correct) {
+                    btn.classList.add('correct'); // Highlight correct answer
+                } else if(i === selectedOpt) {
+                    btn.classList.add('wrong'); // Highlight wrong choice
+                }
+            }
+
+            // Show real-time feedback
+            reasonBox.classList.add('show');
+            if(selectedOpt === qData.correct) {
+                reasonBox.classList.add('correct-bg');
+                reasonBox.innerHTML = `<strong>PILIHAN TEPAT!</strong><br>${qData.reason}`;
+            } else {
+                reasonBox.classList.add('wrong-bg');
+                reasonBox.innerHTML = `<strong>ANALISIS KELIRU.</strong><br>${qData.reason}`;
+            }
+
+            checkQuizCompletion();
+        }
+
+        function checkQuizCompletion() {
+            if(userAnswers.every(ans => ans !== null)) {
+                let score = 0;
+                let correctCount = 0;
+                let wrongCount = 0;
+                let studentAnswerTexts = [];
+
+                userAnswers.forEach((ans, idx) => {
+                    const qData = quizQuestions[idx];
+                    if(ans === qData.correct) {
+                        score += 20;
+                        correctCount++;
+                    } else {
+                        wrongCount++;
+                    }
+                    // Simpan teks dari pilihan jawaban yang diklik siswa
+                    studentAnswerTexts.push(qData.opts[ans]);
+                });
+
+                const cert = document.getElementById('scoreCertificate');
+                const scoreVal = document.getElementById('finalScoreVal');
+                const comment = document.getElementById('scoreComment');
+
+                // Animate score counter
+                let currentScore = 0;
+                scoreVal.innerText = currentScore;
+                cert.style.display = 'block';
+                cert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                const scoreInterval = setInterval(() => {
+                    if(currentScore < score) {
+                        currentScore += 5;
+                        scoreVal.innerText = currentScore;
+                    } else {
+                        clearInterval(scoreInterval);
+                        if(score >= 80) {
+                            comment.innerHTML = "Luar biasa! Kapasitas analisismu setara dengan para ilmuwan penjelajah waktu sejati. Kamu siap mengarungi era informasi modern dengan bijak.";
+                        } else {
+                            comment.innerHTML = "Tidak buruk, namun arsip memori sejarahmu masih perlu ditingkatkan. Silakan kembali ke modul 'Mesin Waktu' untuk mempertajam akurasimu.";
+                        }
+                        
+                        // Setelah animasi skor selesai, kirim data ke database
+                        sendDataToGAS(score, correctCount, wrongCount, studentAnswerTexts);
+                    }
+                }, 50);
+            }
+        }
+
+        function resetQuiz() {
+            userAnswers = new Array(quizQuestions.length).fill(null);
+            document.getElementById('scoreCertificate').style.display = 'none';
+            document.getElementById('savingIndicator').style.display = 'none';
+            
+            // Kembalikan ke tampilan form identitas
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('quizContainer').innerHTML = ''; 
+            document.getElementById('identitasSiswa').style.display = 'block';
+            
+            window.scrollTo({ top: document.getElementById('evaluasi').offsetTop, behavior: 'smooth' });
+        }
+
+        // Initialize App
+        window.onload = function() {
+            // Hapus pemanggilan renderQuiz() dari sini agar kuis tidak muncul sebelum identitas diisi
+            
+            // Trigger UI update for slider default state
+            updateTimePortal(0);
+        };
+    </script>
+</body>
+</html>
